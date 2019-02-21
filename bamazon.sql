@@ -5,6 +5,7 @@
 -- Making the code inside bamazon_db; take in affect --
 USE bamazon_db;
 
+
 -- DROP TABLE IF EXISTS products; 
 
 -- Creating a table with products inside --
