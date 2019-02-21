@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 
     user: "root",
 
-    password: "root",
+    password: "rootroot",
     database: "bamazon_db"
 });
 
@@ -21,7 +21,7 @@ connection.connect(function(err) {
 function start() {
     connection.query("SELECT * FROM products", function(err, res) {
         for (var i = 0; i < res.length; i++) {
-            console.log(res[i].item_id + " | " +res[i].product_name + " | " + res[i].department_name + " | " + res[i].price + " | " + res[i].stock_quantity);
+            console.log("id : " + res[i].item_id + " | " +res[i].product_name + " | " + res[i].department_name + " | " + res[i].price + " | " + res[i].stock_quantity);
         }
     })   
 };

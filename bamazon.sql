@@ -10,7 +10,7 @@ USE bamazon_db;
 
 -- Creating a table with products inside --
 -- CREATE TABLE products (
- --   ID number that goes up by one when creating new rows  --
+  -- ID number that goes up by one when creating new rows  --
 --     item_id INTEGER(50) AUTO_INCREMENT NOT NULL,
     
 --     product_name VARCHAR(50) NOT NULL,
@@ -24,8 +24,8 @@ USE bamazon_db;
 --     PRIMARY KEY (item_id)
 -- );
 
-INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("hats", "adidas", 50, 100);
+-- INSERT INTO products (product_name, department_name, price, stock_quantity)
+-- VALUES ("hats", "adidas", 50, 100);
 -- INSERT INTO products (product_name, department_name, price, stock_quantity)
 -- VALUES ("shoes", "nike", 120, 6);
 -- INSERT INTO products (product_name, department_name, price, stock_quantity)
