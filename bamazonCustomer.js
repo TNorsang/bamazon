@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -17,6 +18,11 @@ connection.connect(function(err) {
 
     table();
     
+});
+
+var table = new Table({
+    head: ['TH 1 label', 'TH 2 label'],
+    colWidths: [100, 200]
 });
 
 function table() {
