@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 
     user: "root",
 
-    password: "rootroot",
+    password: "root",
     database: "bamazon_db"
 });
 
@@ -17,13 +17,13 @@ connection.connect(function(err) {
     if(err) throw err; 
 
     table();
-    
+
 });
 
-var table = new Table({
-    head: ['TH 1 label', 'TH 2 label'],
-    colWidths: [100, 200]
-});
+// table = new Table({
+//     head: ['TH 1 label', 'TH 2 label'],
+//     colWidths: [100, 200]
+// });
 
 function table() {
     connection.query("SELECT * FROM products", function(err, res) {
@@ -31,7 +31,6 @@ function table() {
             console.log("id : " + res[i].item_id + " | " +res[i].product_name + " | " + res[i].department_name + " | " + res[i].price + " | " + res[i].stock_quantity);
         }
     })   
-    questions();
 };
 
 function questions() {
@@ -39,7 +38,7 @@ function questions() {
         .prompt({
             name: "ID",
             type: "input",
-            message: "Choose the item buy typing in the ID Number."
+            message: "Choose the item by typing the ID"
         })
         .then (function(answer) {
             
