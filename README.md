@@ -11,7 +11,7 @@ This is the table view <br>
 The user is looking for the ID and clicked "2" <br>
 <img src="./images/id.png" alt="ID">
 
-This is the total for their item choice <br>
+This is the total for their item choice after purchasing 3 $120 shoes <br>
 <img src="./images/total.png" alt="total">
 
 This is the stock quantity before it updated <br>
