@@ -45,6 +45,10 @@ USE bamazon_db;
 -- INSERT INTO products (product_name, department_name, price, stock_quantity)
 -- VALUES ("pen", "penworld", 10, 10);
 
+-- UPDATE products
+--       SET stock_quantity = 100
+--       WHERE item_id = 5;
+
 -- DELETE FROM `products`
 -- WHERE item_id = 2; 
 

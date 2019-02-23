@@ -7,6 +7,7 @@ var inquirer = require("inquirer");
 // --- This is a table package that we can use to setup our list of items--- \\
 var Table = require("cli-table");
 
+
 //MySQL connection information
 var connection = mysql.createConnection({
 
@@ -17,30 +18,30 @@ var connection = mysql.createConnection({
     user: "root",
 
     password: "rootroot",
-    
+
     database: "bamazon_db"
 
 });
 
-//Connection with DB
+// --- Connecting --- \\
 connection.connect(function(err) {
 
     if (err) throw err;
 
-    console.log("Connected as ID: " + connection.threadId);
+    console.log("Hello :) You are connected as " + connection.threadId);
 
 });
 
-//Function to start bamazon and display products
-var displayProducts = function() {
+
+var products = function() {
 
     console.log("Welcome to Bamazon! Please, find our inventory bellow.");
 
-    //Query DB
+   // --- Creating a table by selecting the items from data --- \\
     connection.query("SELECT * FROM products", function(err, res) {
         if (err) throw err;
 
-        // Creates a table
+        // Creates a table using the package - also a constructor
         var table = new Table({
             head: ["Item ID", "Product Name", "Department", "Price", "Stock Quantity"]
         });
@@ -103,10 +104,10 @@ function purchase(ID, quantityNeeded) {
             console.log("We don't have enough of that item to fulfill your order.");
         };
         //Callback to displayProducts function.
-        displayProducts();
+        products();
     })
 }
 
 //Callback to displayProducts function.
-displayProducts();
+products();
 
