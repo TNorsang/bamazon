@@ -30,14 +30,14 @@ connection.connect(function(err) {
 
     if (err) throw err;
 
-    console.log("Hello :) You are connected as " + connection.threadId);
+    console.log("Hello :) You are connected as ".green + connection.threadId);
 
 });
 
 
 var products = function() {
 
-    console.log("Welcome to Bamazon! Please, find our inventory bellow.");
+    console.log("Welcome to Bamazon! Please, find our inventory bellow.".red);
 
    // --- Creating a table by selecting the items from data --- \\
     connection.query("SELECT * FROM products", function(err, res) {
@@ -62,7 +62,7 @@ var products = function() {
         inquirer.prompt([{
             name: "itemId",
             type: "input",
-            message: "Please, type the Item ID you would like to purchase?",
+            message: "Please, type the Item ID you would like to purchase?".blue,
             validate: function(value) {
                 if (isNaN(value) === false) {
                     return true;
@@ -73,7 +73,7 @@ var products = function() {
         }, {
             name: "quantity",
             type: "input",
-            message: "How many of this product would you like to buy?",
+            message: "How many of this product would you like to buy?".blue,
             validate: function(value) {
              if (isNaN(value) === false) {
                  return true;
@@ -97,7 +97,7 @@ function purchase(ID, quantityNeeded) {
         if (quantityNeeded <= res[0].stock_quantity) {
             var totalCost = res[0].price * quantityNeeded;
 
-            console.log("Your total is $" + totalCost + ". Thank you for your purchase!");
+            console.log("Your total is $".bold + totalCost + ". Thank you for your purchase!".bold);
 
             //Update quantity in the DB
             connection.query("UPDATE products SET stock_quantity = stock_quantity - " + quantityNeeded + " WHERE item_id = " + ID);
