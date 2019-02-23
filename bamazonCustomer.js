@@ -6,6 +6,8 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 // --- This is a table package that we can use to setup our list of items--- \\
 var Table = require("cli-table");
+// -- this is a package for colors -- \\
+var colors = require("colors");
 
 
 //MySQL connection information
@@ -41,21 +43,22 @@ var products = function() {
     connection.query("SELECT * FROM products", function(err, res) {
         if (err) throw err;
 
-        // Creates a table using the package - also a constructor
+        // --- Creates a table using the package - also a constructor --- \\
         var table = new Table({
             head: ["Item ID", "Product Name", "Department", "Price", "Stock Quantity"]
         });
 
 
-        // Displays all items for sale
+        // --- [for loop] that loops through the products --- \\
         for (var i = 0; i < res.length; i++) {
             table.push([res[i].item_id, res[i].product_name, res[i].department_name,
                 res[i].price, res[i].stock_quantity
             ]);
         }
+        // -- displays the product -- \\ 
         console.log(table.toString());
 
-        //Prompt to buy products
+       // --- inquirer prompt to ask questions --- \\
         inquirer.prompt([{
             name: "itemId",
             type: "input",
@@ -85,7 +88,7 @@ var products = function() {
         });
     });
 };
-///Take order and update DB
+// --- purchase function and also update db --- \\
 function purchase(ID, quantityNeeded) {
 
     connection.query("SELECT * FROM products WHERE item_id = " + ID, function(err, res) {
