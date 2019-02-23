@@ -106,7 +106,7 @@ function purchase(ID, quantityNeeded) {
 
             console.log("We don't have enough of that item to fulfill your order.");
         };
-        //Callback to displayProducts function.
+        // --- this shows the updated products table --- \\
         products();
     })
 }
